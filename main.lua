@@ -72,7 +72,7 @@ local function get_affix_screen_position(item) -- (credits QQT)
     local row, col = item:get_inventory_row(), item:get_inventory_column()
     local screen_width, screen_height = get_screen_width(), get_screen_height()
 
-    local inventory_start_x = screen_width * 0.6619
+    local inventory_start_x = screen_width * 0.747
     local inventory_start_y = screen_height * 0.670
     local slot_width = menu.menu_elements.slot_offset_x_slider:get()
     local slot_height = menu.menu_elements.slot_offset_y_slider:get()
@@ -226,11 +226,11 @@ on_key_release(function(key)
                             -- Check if the item should be sold based on the slider value
                             if found_affixes <= affix_sell_count then
                                 if not is_uber_item(inventory_item:get_sno_id()) then
-                                    loot_manager.sell_specific_item(inventory_item)
+                                    loot_manager.salvage_specific_item(inventory_item)
                                 end
                             end
                         else
-                            loot_manager.sell_specific_item(inventory_item)
+                            loot_manager.salvage_specific_item(inventory_item)
                         end
                     end
                 end

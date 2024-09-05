@@ -12,7 +12,7 @@ function selling.get_nearest_vendor()
     -- now interact with the actors in order of proximity
     for _, actor in ipairs(actors) do
         if actor then
-            if actor:get_position():dist_to_ignore_z(player_position) <= 8 and (actor:get_skin_name():match("Vendor_Armor") or actor:get_skin_name():match("Vendor_Silver") or actor:get_skin_name():match("Vendor_Weapons")) then
+            if actor:get_position():dist_to_ignore_z(player_position) <= 8 and (actor:get_skin_name():match("Crafter_Blacksmith") or actor:get_skin_name():match("Vendor_Silver") or actor:get_skin_name():match("Vendor_Weapons")) then
                 return actor
             end
         end
