@@ -182,6 +182,11 @@ on_key_release(function(key)
             local inventory_items = local_player:get_inventory_items()
             for _, inventory_item in pairs(inventory_items) do
                 if inventory_item then
+                    -- Check if the item is locked
+                    if inventory_item:is_locked() then
+                        goto continue -- Skip to the next item if it's locked
+                    end
+
                     local skin_name = inventory_item:get_name()
                     local display_name = inventory_item:get_display_name()  -- Added get_display_name for GreaterAffix check
                     local filter_table = get_filter(skin_name)
